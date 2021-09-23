@@ -1,0 +1,5 @@
+Hello {{user.username}},
+
+We are pleased to have you here at 60 Seconds Impressons where you get to transform the most important aspect in every new person you meet!
+
+Feel free to browse and post new impressions that have worked on you. Cheers!
