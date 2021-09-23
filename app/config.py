@@ -4,7 +4,7 @@ class Config:
     """
 
     SQLALCHEMY_DATABASE_URI = (
-        "postgresql+psycopg2://moringa:aljokela7247@localhost/watchlist"
+        "postgresql+psycopg2://moringa:aljokela7247@localhost/impression"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
