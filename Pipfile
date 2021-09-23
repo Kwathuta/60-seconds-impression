@@ -4,8 +4,24 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "==1.1.2"
+flask-script = "*"
+flask-bootstrap = "*"
+flask-wtf = "*"
+flask-login = "*"
+flask-mail = "*"
+flask-sqlalchemy = "*"
+flask-uploads = "*"
+werkzeug = "==0.16.0"
+flask-migrate = "==2.2.0"
+wtforms = {extras = ["email"], version = "*"}
+psycopg2 = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
