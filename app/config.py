@@ -1,0 +1,31 @@
+class Config:
+    """
+    General parent configuration class
+    """
+
+    SQLALCHEMY_DATABASE_URI = (
+        "postgresql+psycopg2://moringa:aljokela7247@localhost/watchlist"
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class ProdConfig(Config):
+    """
+    Production configuration child class
+    Args:
+        Config: The parent configuration class with Generl configuration settings
+    """
+
+
+class DevConfig(Config):
+    """
+    Development  configuration child class
+
+    Args:
+        Config: The parent configuration class with General configuration settings
+    """
+
+    DEBUG = True
+
+
+config_options = {"development": DevConfig, "production": ProdConfig}
