@@ -58,7 +58,7 @@ def comment(impression_id):
         new_comment.save_comment()
         return redirect(url_for(".comment", impression_id=impression_id))
     return render_template(
-        "comments.html", form=form, impression=impression, all_comments=all_comments
+        "comment.html", form=form, impression=impression, all_comments=all_comments
     )
 
 
@@ -112,7 +112,7 @@ def like(id):
         else:
             continue
     new_like = Like(user=current_user, impression_id=id)
-    new_like.save()
+    new_like.save_like()
     return redirect(url_for("main.index", id=id))
 
 
@@ -129,5 +129,5 @@ def dislike(id):
         else:
             continue
     new_dislike = Dislike(user=current_user, impression_id=id)
-    new_dislike.save()
+    new_dislike.save_dislike()
     return redirect(url_for("main.index", id=id))

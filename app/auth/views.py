@@ -21,14 +21,16 @@ def signup():
         db.session.add(user)
         db.session.commit()
 
-        mail_message('Welcome to 60 Seconds Impressions!', 'email/welcome', user.email, user=user)
+        mail_message(
+            "Welcome to 60 Seconds Impressions!", "email/welcome", user.email, user=user
+        )
 
-        return redirect(url_for("auth.login"))
+        return redirect(url_for("auth.signin"))
     return render_template("auth/signup.html", registration_form=form, title=title)
 
 
 @auth.route("/signin", methods=["GET", "POST"])
-def login():
+def signin():
     login_form = LoginForm()
     if login_form.validate_on_submit():
         user = User.query.filter_by(email=login_form.email.data).first()
@@ -44,6 +46,6 @@ def login():
 
 @auth.route("/signout")
 @login_required
-def logout():
+def signout():
     logout_user()
     return redirect(url_for("main.index"))

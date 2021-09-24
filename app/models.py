@@ -47,6 +47,7 @@ class Impression(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     post = db.Column(db.Text(), nullable=False)
+    comment = db.relationship("Comment", backref="impression", lazy="dynamic")
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     time = db.Column(db.DateTime, default=datetime.utcnow)
     category = db.Column(db.String(255), index=True, nullable=False)
@@ -66,7 +67,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    imression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
+    impression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
 
     def save_comment(self):
         db.session.add(self)
