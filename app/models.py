@@ -51,3 +51,43 @@ class Impression(db.Model):
 
     def __repr__(self):
         return f"Impression {self.post}"
+
+
+class Comment(db.Model):
+    __tablename__ = "comments"
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.Text(), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    imression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls, impression_id):
+        comments = Comment.query.filter_by(impression_id=impression_id).all()
+        return comments
+
+    def __repr__(self):
+        return f"comment:{self.comment}"
+
+
+class Like(db.Model):
+    __tablename__ = "likes"
+
+    id = db.Column(db.Interger, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    impression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
+
+    def save_like(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_likes(cls, like_id):
+        like = Like.query.filter_by(impression_id=like_id).all()
+        return like
+
+    def __repr__(self):
+        return f"{self.user_id}:{self.impression_id}"
