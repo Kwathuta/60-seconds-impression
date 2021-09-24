@@ -1,4 +1,4 @@
-from . import db
+from . import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
@@ -91,3 +91,28 @@ class Like(db.Model):
 
     def __repr__(self):
         return f"{self.user_id}:{self.impression_id}"
+
+
+class Dislike(db.Model):
+    __tablename__ = "dislikes"
+
+    id = db.Column(db.Interger, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    impression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
+
+    def save_dislike(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_dislikes(cls, dislike_id):
+        dislike = Dislike.query.filter_by(impression_id=dislike_id).all()
+        return dislike
+
+    def __repr__(self):
+        return f"{self.user_id}:{self.impression_id}"
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
