@@ -84,7 +84,7 @@ class Comment(db.Model):
 class Like(db.Model):
     __tablename__ = "likes"
 
-    id = db.Column(db.Interger, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     impression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
 
@@ -104,7 +104,7 @@ class Like(db.Model):
 class Dislike(db.Model):
     __tablename__ = "dislikes"
 
-    id = db.Column(db.Interger, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     impression_id = db.Column(db.Integer, db.ForeignKey("impressions.id"))
 
