@@ -1,6 +1,7 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from datetime import datetime
 
 
 class User(UserMixin, db.Model):
@@ -30,3 +31,23 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f"User {self.username}"
+
+
+class Impression(db.Model):
+    __tablename__ = "impressions"
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    post = db.Column(db.Text(), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    time = db.Column(db.DateTime, default=datetime.utcnow)
+    category = db.Column(db.String(255), index=True, nullable=False)
+    like = db.relationship("Like", backref="impression", lazy="dynamic")
+    dislike = db.relationship("Dislike", backref="impression", lazy="dynamic")
+
+    def save_impression(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def __repr__(self):
+        return f"Impression {self.post}"
