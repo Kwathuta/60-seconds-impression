@@ -6,15 +6,96 @@
     <title>{{title}}</title>
     {%else%}
     <title>Welcome to 60 Seconds Impressions</title>
-    {%endif%}
+    {%endif%} {% block styles %}
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo|Farro|Livvic&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/css/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/styles.css')}}"
+    />
+    {% endblock %}
   </head>
   <body>
     {% extends 'bootstrap/base.html' %}
 
     <!-- Navbar block -->
-    {% block navbar %} {% include 'navbar.html' %} {%endblock%} {%block styles
-    %} {{super()}}
-    <!--Importing the simple mde css and js files  -->
+    {% block navbar %} {% include 'navbar.html' %} {%endblock%} {% block scripts
+    %}
+
+    <img
+      class="bg-items"
+      id="top-left"
+      src="../static/img/triangles-top-left.svg"
+      alt=""
+    />
+    <img
+      class="bg-items"
+      id="bottom-right"
+      src="../static/img/triangles-bottom-right.svg"
+      alt=""
+    />
+    <img
+      class="bg-items"
+      id="top-right"
+      src="../static/img/lines-top-right.svg"
+      alt=""
+    />
+    <img
+      class="bg-items"
+      id="bottom-left"
+      src="../static/img/lines-bottom-left.svg"
+      alt=""
+    />
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/particles.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+    <script src="particles.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/js/mdb.min.js"
+    ></script>
     {% endblock %}
   </body>
 </html>

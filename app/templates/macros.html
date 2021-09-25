@@ -17,7 +17,7 @@
               <a href="{{url_for('main.like',id = category.id)}}"
                 ><i
                   class="fa fa-thumbs-up"
-                  style="font-size: 18px; color: green"
+                  style="font-size: 18px; color: #eea06b"
                 ></i>
                 {{category.like.count()}}</a
               ></span
@@ -25,7 +25,7 @@
 
             <span class="foot">
               <a href="{{url_for('main.dislike',id = category.id)}}">
-                <i class="fa fa-thumbs-down" style="color: red"></i>
+                <i class="fa fa-thumbs-down" style="color: #eea06b"></i>
                 {{category.dislike.count()}}</a
               ></span
             >
@@ -34,6 +34,10 @@
           <a
             href="{{url_for('main.comment',impression_id = category.id)}}"
             class="btn btn-info btn-sm"
+            style="
+              background: linear-gradient(90deg, #eea06b 0%, #ffd973 100%);
+              color: #040d21;
+            "
           >
             Comment</a
           >
