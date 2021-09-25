@@ -3,7 +3,9 @@ html {
 }
 
 body {
-  background-color: #040d21;
+  background-color: #041021;
+  font-family: "Poppins", sans-serif;
+  color: #fffff0;
 }
 
 a {
@@ -35,7 +37,15 @@ a {
   left: 0;
 }
 
-#categories:active {
+#center {
+  left: 50%;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.btn-default,
+.btn-info {
   background: linear-gradient(90deg, #eea06b 0%, #ffd973 100%);
   color: #040d21;
 }
@@ -60,72 +70,45 @@ a {
   border: 1px solid rgba(255, 133, 110, 0.25);
 }
 
-#posts {
-  color: rgb(255, 255, 255);
-  font-weight: bolder;
-  margin-top: 2%;
-  font-size: 40px;
-  font-family: "Farro", sans-serif;
-}
-.pict {
-  margin-top: 2%;
-}
-.foot {
-  margin: 20px;
-}
 #postform {
-  color: white;
+  color: #fffff0;
+  border: 1px solid rgba(255, 133, 110, 0.25);
   margin-top: 3%;
-  background-color: rgba(0, 0, 0, 0.456);
   padding: 3%;
   border-radius: 8px;
   z-index: 1;
 }
-#login {
-  margin-top: 5%;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.456);
-  border-radius: 8px;
-  padding: 3%;
+
+.form-control,
+.form-control:focus {
+  background-color: transparent;
+  color: #ffd973;
+  border: 1px solid rgba(255, 133, 110, 0.25);
 }
-#sign {
-  color: rgb(0, 0, 0);
-  text-decoration: underline;
+
+.form-control:focus {
+  box-shadow: 4px 4px 4px rgba(255, 133, 110, 0.25);
 }
-#coms {
+
+.card,
+.navbar,
+.pagination .page-item.active .page-link {
+  box-shadow: 4px 4px 4px rgba(255, 133, 110, 0.25);
+}
+
+#posts {
   color: rgb(255, 255, 255);
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-top: 2%;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
 }
-#allcomments {
-  /* background-color: rgba(0, 0, 0, 0.589); */
-  padding-top: 2%;
-  border-radius: 10px;
-  height: 100%;
+
+.impressions {
+  border-bottom: 1px solid rgba(255, 133, 110, 0.25);
 }
-.commentform {
-  color: white;
-  margin-top: 1%;
-}
-#user {
-  margin-top: 4%;
-  color: white;
-}
-.pitches {
-  background-color: azure;
-  color: black;
-  padding: 2%;
-  border-radius: 8px;
-  margin-bottom: 1%;
-}
-.updateprofile {
-  margin-top: 5%;
-  color: white;
-}
-#particles-js {
-  /* height: inherit; */
-  background-size: cover;
-  /* background-repeat: no-repeat; */
-  /* background-position: 50% 50%; */
-}
+
 #imgform {
   display: none;
 }

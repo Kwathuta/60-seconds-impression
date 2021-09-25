@@ -7,10 +7,14 @@
     {%else%}
     <title>Welcome to 60 Seconds Impressions</title>
     {%endif%} {% block styles %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Arimo|Farro|Livvic&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -62,39 +66,19 @@
       alt=""
     />
 
+    <img class="bg-items" id="center" src="../static/img/circles.svg" alt="" />
+
     <script
       type="text/javascript"
       src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"
     ></script>
     <script
       type="text/javascript"
-      src="{{ url_for('static', filename='js/particles.js') }}"
-    ></script>
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='js/app.js') }}"
-    ></script>
-    <script
-      type="text/javascript"
       src="{{ url_for('static', filename='js/script.js') }}"
-    ></script>
-    <script src="particles.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
     ></script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/js/mdb.min.js"
     ></script>
     {% endblock %}
   </body>
